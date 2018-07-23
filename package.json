@@ -1,0 +1,31 @@
+{
+  "name": "hellomd-graphql",
+  "version": "0.0.1",
+  "description": "HelloMD GraphQL server",
+  "scripts": {
+    "start": "concurrently --kill-others --names \"tsc,node\" -c \"blue,green\" \"npx tsc --noEmit --pretty --watch\" \"npx nodemon src/index.ts --exec babel-node --extensions '.ts,.tsx' src/index.ts\"",
+    "typecheck": "npx tsc --noEmit --pretty",
+    "build": "npx tsc --noEmit --pretty && npx babel --extensions '.ts,.tsx' --source-maps --out-dir dist src",
+    "serve": "node --require source-map-support/register dist/index.js"
+  },
+  "dependencies": {
+    "@types/node-fetch": "^2.1.1",
+    "global": "^4.3.2",
+    "graphql": "^0.13.2",
+    "graphql-yoga": "^1.14.12",
+    "node-fetch": "^2.1.2",
+    "tslib": "^1.9.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.54",
+    "@babel/node": "^7.0.0-beta.54",
+    "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.54",
+    "@babel/preset-env": "^7.0.0-beta.54",
+    "@babel/preset-typescript": "^7.0.0-beta.54",
+    "concurrently": "^3.6.0",
+    "nodemon": "^1.18.3",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.9.2",
+    "typescript": "^2.9.2"
+  }
+}
